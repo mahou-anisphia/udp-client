@@ -1,5 +1,6 @@
 import socket
-from converters.json_validator import validate_json
+from converters.udp_package_validator import validate_json
+from converters.udp_package_validator import validate_package_format
 from converters.mqtt_publisher import publish_message
 
 def start_udp_listener(ip, port, stop_event):
@@ -12,9 +13,13 @@ def start_udp_listener(ip, port, stop_event):
         try:
             data, addr = sock.recvfrom(1024)
             message = data.decode()
+            validate, json_data = validate_json(message)
 
-            if validate_json(message):
-                publish_message(message)
+            if validate:
+                if validate_package_format(json_data):
+                    publish_message(json_data)
+                else:
+                    print(f"Invalid package received from {addr}: {message}")
             else:
                 print(f"Invalid JSON received from {addr}: {message}")
                 # Optionally send a response back
