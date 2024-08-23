@@ -1,8 +1,15 @@
-# udp-client
-This is a simple UDP client which listen and convert to MQTT
-Start command (VENV):
+# UDP Client
+
+This is a basic UDP client that listens for messages and converts them to MQTT.
+
+## Start Command (using Virtual Environment):
+
+```bash
 python3 -m venv myenv
 source myenv/bin/activate
+```
 
-Package installed
-socket
+## Required Packages:
+
+- `paho-mqtt`
+- `python-dotenv`
