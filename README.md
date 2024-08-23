@@ -1,6 +1,6 @@
-# UDP Client
+# UDP to MQTT Server
 
-This is a basic UDP client that listens for messages and converts them to MQTT.
+This is a basic UDP server that listens for messages and converts them to MQTT.
 
 ## Start Command (using Virtual Environment):
 
