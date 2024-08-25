@@ -1,0 +1,7 @@
+{
+    "topic": "v1/devices/me/telemetry",
+    "message": {
+        "temperature": 25,
+        "humidity": 50
+    }
+}
